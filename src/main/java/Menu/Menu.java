@@ -73,6 +73,8 @@ public class Menu extends JPanel {
         g.drawString("Quit", 700, 500);
 
         this.addMouseListener(new MouseInput());
+
+        System.out.println("Prueba");
     }
 
 }
