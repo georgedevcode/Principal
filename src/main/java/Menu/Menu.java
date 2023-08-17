@@ -68,13 +68,11 @@ public class Menu extends JPanel {
 
         g.drawString("Tony Hawk's Pro Skater", 500, 200);
 
-        g.drawString("Start", 700, 300);
+        g.drawString("Enter to Star Game", 400, 300);
 
-        g.drawString("Quit", 700, 500);
+        g.drawString("Esc to Exit Game", 400, 500);
 
-        this.addMouseListener(new MouseInput());
-
-        System.out.println("Prueba");
+       
     }
 
 }

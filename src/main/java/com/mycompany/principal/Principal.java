@@ -16,7 +16,7 @@ public class Principal {
         
         MainView menu = new MainView();
         menu.initializeMainView();
-        System.out.println("prueba");
+       
         //JFrame ventana = new JFrame();        
        // ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        // ventana.setResizable(false);

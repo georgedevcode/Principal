@@ -13,7 +13,7 @@ import java.awt.event.MouseListener;
  */
 public class MouseInput  implements MouseListener {
 
-   private boolean characterPaneOpened = false;
+    private boolean characterPaneOpened = false;
     private int MOUSE_X_COORDINATES = 0;
     private int MOUSE_Y_COORDINATES = 0;
 
