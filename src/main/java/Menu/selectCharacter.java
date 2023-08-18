@@ -17,5 +17,7 @@ public class selectCharacter extends JFrame {
         setSize(400, 300); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         setVisible(true); 
+        setLocationRelativeTo(null);
     }
 }
+

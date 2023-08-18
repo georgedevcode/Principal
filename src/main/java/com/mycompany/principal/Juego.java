@@ -4,9 +4,7 @@
  */
 package com.mycompany.principal;
 
-import Entidad.Jugador;
 import Entidad.Jugador2;
-import Entidad.Jugador3;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;

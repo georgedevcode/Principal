@@ -13,7 +13,7 @@ import java.awt.event.KeyListener;
  */
 public class Teclado implements KeyListener {
 
-    public boolean leftPressed, rigthPressed, spacePressed;
+    public boolean leftPressed, rigthPressed, spacePressed, enterPressed,escPressed;
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -35,7 +35,14 @@ public class Teclado implements KeyListener {
             spacePressed = true;
 
         }
-         
+         if (code == KeyEvent.VK_ENTER) {
+            enterPressed = true;
+
+        }
+        if (code == KeyEvent.VK_ESCAPE) {
+           escPressed = true;
+
+        }
     }
 
     @Override
@@ -53,7 +60,14 @@ public class Teclado implements KeyListener {
             spacePressed = false;
 
         }
-         
+        if (code == KeyEvent.VK_ENTER) {
+            enterPressed = false;
+
+        }
+         if (code == KeyEvent.VK_ESCAPE) {
+            escPressed = false;
+
+        }
     }
 
 }
