@@ -17,16 +17,6 @@ public class Principal {
         MainView menu = new MainView();
         menu.initializeMainView();
        
-        //JFrame ventana = new JFrame();        
-       // ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       // ventana.setResizable(false);
-      //  ventana.setTitle("Tony Hawk's Pro Skater 2");
-       // Juego juego = new Juego();
-       // ventana.add(juego);
-        //ventana.pack();
-       // ventana.setLocationRelativeTo(null);
-       // ventana.setVisible(true);
-      //  juego.empezarHilo();
-        //juego.setupGame();
+        
     }
 }

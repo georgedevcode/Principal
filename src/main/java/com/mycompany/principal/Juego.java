@@ -4,11 +4,14 @@
  */
 package com.mycompany.principal;
 
+import Entidad.Jugador;
 import Entidad.Jugador2;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -19,7 +22,7 @@ public class Juego extends JPanel implements Runnable {
 
     public Sonido sonido = new Sonido();
     private Teclado teclado = new Teclado();
-    private Jugador2 jugador = new Jugador2(this, teclado);
+    private Jugador jugadorSeleccionado;
     public GestorColisiones colisionchek = new GestorColisiones(this);
     //FPS
     private int FPS = 70;
@@ -66,9 +69,11 @@ public class Juego extends JPanel implements Runnable {
 
         }
     }
-
+    public void setJugadorSeleccionado(Jugador jugador) {
+        this.jugadorSeleccionado = jugador;
+    }
     public void actualizar() {
-        jugador.actualizar();
+       jugadorSeleccionado.actualizar();
     }
 // Dibujar en el JFrame
 
@@ -78,7 +83,7 @@ public class Juego extends JPanel implements Runnable {
 
         Graphics2D g2 = (Graphics2D) g;
 
-        jugador.dibujar(g2);
+       jugadorSeleccionado.dibujar(g2);
 
         g2.dispose();
 
@@ -97,5 +102,19 @@ public class Juego extends JPanel implements Runnable {
     public void playEfectos(int i) {
         sonido.setFile(i);
         sonido.play();
+    }
+
+      public void empezar() {
+        JFrame ventana = new JFrame();
+        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ventana.setResizable(false);
+        ventana.setTitle("Tony Hawk's Pro Skater 2");
+        Juego juego = new Juego();
+        ventana.add(juego);
+        ventana.pack();
+        ventana.setLocationRelativeTo(null);
+        ventana.setVisible(true);
+        juego.empezarHilo();
+        juego.setupGame();
     }
 }
