@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Menu;
 import javax.swing.*;
 import java.awt.event.*;
@@ -11,10 +7,6 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 
-/**
- *
- * @author user
- */
 public class Menu extends JPanel implements KeyListener{
 
     private int width = 0;
@@ -24,8 +16,10 @@ public class Menu extends JPanel implements KeyListener{
     private String escText = "Esc";
     private Timer textTimer;
     private boolean characterWindowOpened = false;
+
     //La funcion constructura del la clase Menu carga la imagen de fondo.
     //Addicionalmente setea el WIDTH y HEIGH en base a la imagen de fondo
+    
     public Menu() {
         
         LoadBackGroundImage();
@@ -35,27 +29,40 @@ public class Menu extends JPanel implements KeyListener{
         this.height = this.BackGroundImage.getHeight(this);
 
         setPreferredSize(new Dimension(this.width, this.height));
+
         addKeyListener(this);
+
         setFocusable(true);
 
         textTimer = new Timer(1000, new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 if (enterText.equals("Enter")) {
+
                     enterText = "Start";
+
                 } else {
+
                     enterText = "Enter";
+
                 }
 
                 if (escText.equals("Esc")) {
+
                     escText = "Quit";
+
                 } else {
+
                     escText = "Esc";
+
                 }
 
                 repaint();
             }
         });
+
         textTimer.start();
     }
     
@@ -90,7 +97,9 @@ public class Menu extends JPanel implements KeyListener{
         g.setColor(Color.WHITE);
 
         g.drawString("Tony Hawk's Pro Skater", 500, 200);
+
         g.drawString(enterText, 700, 300);
+
         g.drawString(escText, 700, 500);
 
 
@@ -103,13 +112,21 @@ public class Menu extends JPanel implements KeyListener{
 
     @Override
     public void keyPressed(KeyEvent e) {
+
         int keyCode = e.getKeyCode();
+
         if (keyCode == KeyEvent.VK_ENTER && !characterWindowOpened) {
+
             openCharacterPane();
-            
-            characterWindowOpened = true; // Establecer la variable a true para evitar abrir más ventanas
+
+            // Establecer la variable a true para evitar abrir más ventanas
+            characterWindowOpened = true; 
+
         } else if (keyCode == KeyEvent.VK_ESCAPE) {
-            System.exit(0); // Cierra la aplicación
+
+            // Cierra la aplicación
+            System.exit(0); 
+
         }
     }
     
@@ -119,7 +136,9 @@ public class Menu extends JPanel implements KeyListener{
        
     }
     private void openCharacterPane() {
-       selectCharacter seleccion = new selectCharacter ();
+
+       selectCharacter seleccion = new selectCharacter();
+
     }
 
 

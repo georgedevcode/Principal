@@ -1,9 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Entidad;
-
 import com.mycompany.principal.Juego;
 import com.mycompany.principal.Teclado;
 import java.awt.Color;
@@ -14,25 +9,28 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-/**
- *
- * @author user
- */
 public class Jugador3 extends Entidad {
 
-    Juego gp;
+    Juego juego;
+
     Teclado teclado;
 
-    public Jugador3(Juego gp, Teclado teclado) {
-        this.gp = gp;
+    public Jugador3(Juego juego, Teclado teclado) {
+
+        this.juego = juego;
+
         this.teclado = teclado;
+
         areaSolida = new Rectangle(62, 150);
+
         setDefaultValues();
+
         getImagenJugador();
 
     }
 
     public void getImagenJugador() {
+
         try {
             rollMewtow[0] = ImageIO.read(new File("src/main/java/MewtowRoll/roll (1).png"));
             rollMewtow[1] = ImageIO.read(new File("src/main/java/MewtowRoll/roll (2).png"));
@@ -107,123 +105,211 @@ public class Jugador3 extends Entidad {
         } catch (IOException e) {
 
             e.printStackTrace();
+
         }
     }
 
     public void setDefaultValues() {
+
         personajex = 0;
+
         personajey = 400;
+
         velocidad = 4;
+
         velocidadSalto = 7;
+
         enelSuelo = true;
+
         estaSaltando = false;
+
         alturaSalto = 125;
+
         saltosRealizados = 0;
+
         alturaActual = 0;
+
         direccion = "Derecha";
 
     }
 
     public void actualizar() {
+
         if (teclado.spacePressed) {
+
             direccion = "Salto";
+
             if (!estaSaltando) {
+
                 if (enelSuelo || saltosRealizados < numerodeSaltos) {
+
                     estaSaltando = true;
+
                     enelSuelo = false;
+
                     alturaActual = 0;
+
                     saltosRealizados++;
+
                 }
             }
         }
 
         if (estaSaltando) {
+
             personajey -= velocidadSalto;
+
             alturaActual += velocidadSalto;
 
             if (alturaActual >= alturaSalto) {
+
                 estaSaltando = false;
+
             }
         } else {
+
             if (personajey < suelo) {
+
                 personajey += velocidadSalto;
 
                 if (personajey >= suelo) {
+
                     personajey = suelo;
+
                     enelSuelo = true;
-                    saltosRealizados = 0; // Restablecer el contador de saltos cuando toca el suelo
+
+                    // Restablecer el contador de saltos cuando toca el suelo
+                    saltosRealizados = 0;
+
                 }
             }
         }
+
         // Limitar el movimiento del personaje en el eje x
         if (teclado.leftPressed == true) {
+
             personajex -= velocidad;
+
             if (personajex < 0) {
-                personajex = 0; // No permitir que el personaje se salga por el lado izquierdo
+
+                // No permitir que el personaje se salga por el lado izquierdo
+                personajex = 0; 
+
             }
         } else if (teclado.rigthPressed == true) {
+
             direccion = "Derecha";
+
             personajex += velocidad;
+
             if (personajex > 950) {
-                personajex = 950; // No permitir que el personaje se salga por el lado derecho
+                
+                // No permitir que el personaje se salga por el lado derecho
+                personajex = 950; 
+
             }
         }
+
         areaSolida.setLocation(120 + personajex, 30 + personajey);
+
         Colision = false;
-        gp.colisionchek.colision(this);
+
+        juego.colisionchek.colision(this);
+
         if (Colision == false) {
+
             contadordesprites++;
-            if (contadordesprites > 5) { // Menor valor para cambiar más rápido, mayor para cambiar más lento
+
+            // Menor valor para cambiar más rápido, mayor para cambiar más lento
+            if (contadordesprites > 5) { 
+
                 // Restablecemos el contador a 0
                 contadordesprites = 0;
 
                 // Cambiamos al siguiente sprite según la dirección actual
                 switch (direccion) {
+
                     case "Inactivo":
+
                         spritenum++;
+
                         if (spritenum > 28) {
+
                             spritenum = 1; // Volvemos al primer sprite de roll al llegar al último
+
                         }
+
                         break;
+
                     case "Derecha":
+
                         spritenum++;
+
                         if (spritenum > 26) {
-                            spritenum = 1; // Volvemos al primer sprite de roll al llegar al último
+                            // Volvemos al primer sprite de roll al llegar al último
+                            spritenum = 1; 
+
                         }
+
                         break;
+
                     case "Salto":
+
                         spritenum++;
+                        
                         if (spritenum > 12) {
-                            spritenum = 1; // Volvemos al primer sprite de salto al llegar al último
+
+                            // Volvemos al primer sprite de salto al llegar al último
+                            spritenum = 1;   
+
                             direccion = "Derecha"; // Volvemos a la dirección de roll al final del salto
                         }
+
                         break;
+
                 }
             }
         }
     }
 
     public void dibujar(Graphics2D g2) {
+
         //Se dibujan los sprites segun las direcciones declaradas anteriormente
         BufferedImage imagen = null;
+
         switch (direccion) {
+
             case "Inactivo":
+
                 imagen = idelsprites[spritenum - 1];
+
                 break;
+
             case "Derecha":
+
                 imagen = rollMewtow[spritenum - 1];
+
                 break;
+
             case "Salto":
+
                 if (spritenum - 1 < heelflipMewtow.length) {
+
                     imagen = heelflipMewtow[spritenum - 1];
+                    
                 } else {
+                    
                     imagen = heelflipMewtow[0];
+
                 }
 
                 break;
         }
+
         g2.setColor(Color.red);
+
         g2.draw(areaSolida);
+        
         g2.drawImage(imagen, personajex, personajey, 300, 200, null);
     }
 }
