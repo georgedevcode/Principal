@@ -1,28 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.mycompany.principal;
 
-import Entidad.Jugador;
-import Entidad.Jugador2;
+
+import Entidad.Personaje;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-/**
- *
- * @author user
- */
 public class Juego extends JPanel implements Runnable {
-
+    
     public Sonido sonido = new Sonido();
     private Teclado teclado = new Teclado();
-    private Jugador jugadorSeleccionado;
+ 
+    //Este objeto es el personaje, pero solo vamos a user al pokemon que es la Jugador3.java
+    Personaje jugador = new Personaje(this, this.teclado);
+
     public GestorColisiones colisionchek = new GestorColisiones(this);
     //FPS
     private int FPS = 70;
@@ -52,6 +47,7 @@ public class Juego extends JPanel implements Runnable {
 
     @Override
     public void run() {
+
         double intervaloDibujo = 1000000000 / FPS;
         double delta = 0;
         long ultimavez = System.nanoTime();
@@ -69,52 +65,72 @@ public class Juego extends JPanel implements Runnable {
 
         }
     }
-    public void setJugadorSeleccionado(Jugador jugador) {
-        this.jugadorSeleccionado = jugador;
-    }
-    public void actualizar() {
-       jugadorSeleccionado.actualizar();
-    }
-// Dibujar en el JFrame
 
+    public void actualizar() {
+
+       jugador.actualizar();
+
+    }
+
+// Dibujar en el JFrame
     public void paintComponent(Graphics g) {
 
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D) g;
 
-       jugadorSeleccionado.dibujar(g2);
+        jugador.dibujar(g2);
 
         g2.dispose();
 
     }
 
     public void playMusic(int i) {
+
         sonido.setFile(i);
+
         sonido.play();
+
         sonido.loop();
+
     }
 
     public void stopMusic() {
+
         sonido.stop();
+
     }
 
     public void playEfectos(int i) {
+
         sonido.setFile(i);
+
         sonido.play();
+
     }
 
       public void empezar() {
+
         JFrame ventana = new JFrame();
+
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         ventana.setResizable(false);
+
         ventana.setTitle("Tony Hawk's Pro Skater 2");
+
         Juego juego = new Juego();
+
         ventana.add(juego);
+
         ventana.pack();
+
         ventana.setLocationRelativeTo(null);
+
         ventana.setVisible(true);
+
         juego.empezarHilo();
+
         juego.setupGame();
     }
 }

@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
+import com.mycompany.principal.Juego;
 
 public class Menu extends JPanel implements KeyListener{
 
@@ -117,10 +118,30 @@ public class Menu extends JPanel implements KeyListener{
 
         if (keyCode == KeyEvent.VK_ENTER && !characterWindowOpened) {
 
-            openCharacterPane();
+            System.out.println("Iniciar juego");
 
-            // Establecer la variable a true para evitar abrir más ventanas
-            characterWindowOpened = true; 
+            Juego juego = new Juego();
+
+            JFrame ventana = new JFrame();
+
+            ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+            ventana.setResizable(false);
+
+            ventana.setTitle("Tony Hawk's Pro Skater 2");
+
+            ventana.add(juego);
+
+            ventana.pack();
+
+            ventana.setLocationRelativeTo(null);
+
+            ventana.setVisible(true);
+
+            juego.empezarHilo();
+
+            juego.setupGame();
+
 
         } else if (keyCode == KeyEvent.VK_ESCAPE) {
 
@@ -135,11 +156,5 @@ public class Menu extends JPanel implements KeyListener{
     public void keyReleased(KeyEvent e) {
        
     }
-    private void openCharacterPane() {
-
-       selectCharacter seleccion = new selectCharacter();
-
-    }
-
-
+    
 }

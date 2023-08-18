@@ -1,4 +1,5 @@
 package com.mycompany.principal;
+
 import Menu.MainView;
 public class Principal {
 
@@ -7,6 +8,6 @@ public class Principal {
         MainView menu = new MainView();
 
         menu.initializeMainView();
-       
+
     }
 }

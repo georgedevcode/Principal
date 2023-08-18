@@ -9,13 +9,13 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-public class Jugador3 extends Entidad {
+public class Personaje extends Entidad {
 
     Juego juego;
 
     Teclado teclado;
 
-    public Jugador3(Juego juego, Teclado teclado) {
+    public Personaje(Juego juego, Teclado teclado) {
 
         this.juego = juego;
 
