@@ -2,6 +2,7 @@
 package com.mycompany.principal;
 
 public class GestorColisiones {
+
     Juego juego;
 
     public GestorColisiones(Juego juego){

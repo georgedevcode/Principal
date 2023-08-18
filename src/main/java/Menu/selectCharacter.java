@@ -53,9 +53,23 @@ public class selectCharacter extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                System.out.println("Seleccion");
+
                 Jugador jugador1 = new Jugador(juego, teclado);
 
-                // Resto de la lógica para el jugador 1
+                JFrame escena = new JFrame();
+
+                escena.setTitle("Tony Hawk's Pro Skater");
+
+                escena.setSize(1366, 768);
+        
+                escena.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                
+                escena.setLocationRelativeTo(null);
+
+                escena.setVisible(true);
+
+                escena.add(jugador1);
             }
         });
 

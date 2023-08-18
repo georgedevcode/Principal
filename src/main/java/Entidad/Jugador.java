@@ -8,11 +8,13 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 
-public class Jugador extends Entidad {
+public class Jugador  extends JPanel{
 
     Juego juego;
     Teclado teclado;
+    Entidad entidad = new Entidad();
 
     public Jugador(Juego juego, Teclado teclado){
 
@@ -20,7 +22,9 @@ public class Jugador extends Entidad {
 
         this.teclado = teclado;
 
-        areaSolida = new Rectangle(62, 150);
+        setVisible(true);
+
+        entidad.areaSolida = new Rectangle(62, 150);
 
         setDefaultValues();
 
@@ -29,70 +33,70 @@ public class Jugador extends Entidad {
     }
 
     public void getImagenJugador() {
-
         try {
-            rollSprites[0] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_00.png"));
-            rollSprites[1] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_01.png"));
-            rollSprites[2] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_02.png"));
-            rollSprites[3] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_03.png"));
-            rollSprites[4] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_04.png"));
-            rollSprites[5] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_05.png"));
-            rollSprites[6] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_06.png"));
-            rollSprites[7] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_07.png"));
-            rollSprites[8] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_08.png"));
-            rollSprites[9] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_09.png"));
-            rollSprites[10] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_10.png"));
-            rollSprites[11] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_11.png"));
-            rollSprites[12] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_12.png"));
-            rollSprites[13] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_13.png"));
-            rollSprites[14] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_14.png"));
-            rollSprites[15] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_15.png"));
-            rollSprites[16] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_16.png"));
-            rollSprites[17] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_17.png"));
-            rollSprites[18] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_18.png"));
 
-            ollieSprites[0] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_00.png"));
-            ollieSprites[1] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_01.png"));
-            ollieSprites[2] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_02.png"));
-            ollieSprites[3] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_03.png"));
-            ollieSprites[4] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_04.png"));
-            ollieSprites[5] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_05.png"));
-            ollieSprites[6] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_06.png"));
-            ollieSprites[7] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_07.png"));
-            ollieSprites[8] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_08.png"));
-            ollieSprites[9] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_09.png"));
-            ollieSprites[10] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_10.png"));
-            ollieSprites[11] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_11.png"));
+            entidad.rollSprites[1] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_01.png"));
+            entidad.rollSprites[0] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_00.png"));
+            entidad.rollSprites[2] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_02.png"));
+            entidad.rollSprites[4] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_04.png"));
+            entidad.rollSprites[3] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_03.png"));
+            entidad.rollSprites[5] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_05.png"));
+            entidad.rollSprites[6] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_06.png"));
+            entidad.rollSprites[7] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_07.png"));
+            entidad.rollSprites[8] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_08.png"));
+            entidad.rollSprites[9] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_09.png"));
+            entidad.rollSprites[10] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_10.png"));
+            entidad.rollSprites[11] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_11.png"));
+            entidad.rollSprites[12] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_12.png"));
+            entidad.rollSprites[13] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_13.png"));
+            entidad.rollSprites[14] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_14.png"));
+            entidad.rollSprites[15] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_15.png"));
+            entidad.rollSprites[16] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_16.png"));
+            entidad.rollSprites[17] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_17.png"));
+            entidad.rollSprites[18] = ImageIO.read(new File("src/main/java/sprites/skater boy-roll_18.png"));
 
-            idelsprites[0] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_00.png"));
-            idelsprites[1] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_01.png"));
-            idelsprites[2] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_02.png"));
-            idelsprites[3] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_03.png"));
-            idelsprites[4] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_04.png"));
-            idelsprites[5] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_05.png"));
-            idelsprites[6] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_06.png"));
-            idelsprites[7] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_07.png"));
-            idelsprites[8] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_08.png"));
-            idelsprites[9] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_09.png"));
-            idelsprites[10] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_10.png"));
-            idelsprites[11] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_11.png"));
-            idelsprites[12] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_12.png"));
-            idelsprites[13] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_13.png"));
-            idelsprites[14] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_14.png"));
-            idelsprites[15] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_15.png"));
-            idelsprites[16] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_16.png"));
-            idelsprites[17] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_17.png"));
-            idelsprites[18] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_18.png"));
-            idelsprites[19] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_19.png"));
-            idelsprites[20] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_20.png"));
-            idelsprites[21] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_21.png"));
-            idelsprites[22] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_22.png"));
-            idelsprites[23] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_23.png"));
-            idelsprites[24] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_24.png"));
-            idelsprites[25] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_25.png"));
-            idelsprites[26] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_26.png"));
-            idelsprites[27] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_27.png"));
-            idelsprites[28] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_28.png"));
+            entidad.ollieSprites[0] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_00.png"));
+            entidad.ollieSprites[1] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_01.png"));
+            entidad.ollieSprites[2] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_02.png"));
+            entidad.ollieSprites[3] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_03.png"));
+            entidad.ollieSprites[4] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_04.png"));
+            entidad.ollieSprites[5] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_05.png"));
+            entidad.ollieSprites[6] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_06.png"));
+            entidad.ollieSprites[7] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_07.png"));
+            entidad.ollieSprites[8] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_08.png"));
+            entidad.ollieSprites[9] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_09.png"));
+            entidad.ollieSprites[10] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_10.png"));
+            entidad.ollieSprites[11] = ImageIO.read(new File("src/main/java/sprites/ollie/skater boy-ollie_11.png"));
+
+            entidad.idelsprites[0] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_00.png"));
+            entidad.idelsprites[1] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_01.png"));
+            entidad.idelsprites[2] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_02.png"));
+            entidad.idelsprites[3] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_03.png"));
+            entidad.idelsprites[4] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_04.png"));
+            entidad.idelsprites[5] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_05.png"));
+            entidad.idelsprites[6] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_06.png"));
+            entidad.idelsprites[7] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_07.png"));
+            entidad.idelsprites[8] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_08.png"));
+            entidad.idelsprites[9] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_09.png"));
+            entidad.idelsprites[10] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_10.png"));
+            entidad.idelsprites[11] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_11.png"));
+            entidad.idelsprites[12] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_12.png"));
+            entidad.idelsprites[13] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_13.png"));
+            entidad.idelsprites[14] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_14.png"));
+            entidad.idelsprites[15] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_15.png"));
+            entidad.idelsprites[16] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_16.png"));
+            entidad.idelsprites[17] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_17.png"));
+            entidad.idelsprites[18] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_18.png"));
+            entidad.idelsprites[19] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_19.png"));
+            entidad.idelsprites[20] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_20.png"));
+            entidad.idelsprites[21] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_21.png"));
+            entidad.idelsprites[22] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_22.png"));
+            entidad.idelsprites[23] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_23.png"));
+            entidad.idelsprites[24] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_24.png"));
+            entidad.idelsprites[25] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_25.png"));
+            entidad.idelsprites[26] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_26.png"));
+            entidad.idelsprites[27] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_27.png"));
+            entidad.idelsprites[28] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_28.png"));
 
         } catch (IOException e) {
 
@@ -104,25 +108,25 @@ public class Jugador extends Entidad {
 
     public void setDefaultValues() {
 
-        personajex = 0;
+        entidad.personajex = 0;
 
-        personajey = 400;
+        entidad.personajey = 400;
 
-        velocidad = 4;
+        entidad.velocidad = 4;
 
-        velocidadSalto = 8;
+        entidad.velocidadSalto = 8;
 
-        enelSuelo = true;
+        entidad.enelSuelo = true;
 
-        estaSaltando = false;
+        entidad.estaSaltando = false;
 
-        alturaSalto = 125;
+        entidad.alturaSalto = 125;
 
-        saltosRealizados = 0;
+        entidad.saltosRealizados = 0;
 
-        alturaActual = 0;
+        entidad.alturaActual = 0;
 
-        direccion = "Inactivo";
+        entidad.direccion = "Inactivo";
 
     }
 
@@ -130,49 +134,49 @@ public class Jugador extends Entidad {
 
         if (teclado.spacePressed) {
 
-            direccion = "Salto";
+            entidad.direccion = "Salto";
 
-            if (!estaSaltando) {
+            if (!entidad.estaSaltando) {
 
-                if (enelSuelo || saltosRealizados < numerodeSaltos) {
+                if (entidad.enelSuelo || entidad.saltosRealizados < entidad.numerodeSaltos) {
 
-                    estaSaltando = true;
+                    entidad.estaSaltando = true;
 
-                    enelSuelo = false;
+                    entidad.enelSuelo = false;
 
-                    alturaActual = 0;
+                    entidad.alturaActual = 0;
 
-                    saltosRealizados++;
+                    entidad.saltosRealizados++;
 
                 }
             }
         }
 
-        if (estaSaltando) {
+        if (entidad.estaSaltando) {
 
-            personajey -= velocidadSalto;
+            entidad.personajey -= entidad.velocidadSalto;
 
-            alturaActual += velocidadSalto;
+            entidad.alturaActual += entidad.velocidadSalto;
 
-            if (alturaActual >= alturaSalto) {
+            if (entidad.alturaActual >= entidad.alturaSalto) {
 
-                estaSaltando = false;
+                entidad.estaSaltando = false;
 
             }
         } else {
 
-            if (personajey < suelo) {
+            if (entidad.personajey < entidad.suelo) {
 
-                personajey += velocidadSalto;
+                entidad.personajey += entidad.velocidadSalto;
 
-                if (personajey >= suelo) {
+                if (entidad.personajey >= entidad.suelo) {
 
-                    personajey = suelo;
+                    entidad.personajey = entidad.suelo;
 
-                    enelSuelo = true;
+                    entidad.enelSuelo = true;
 
                     // Restablecer el contador de saltos cuando toca el suelo
-                    saltosRealizados = 0; 
+                    entidad.saltosRealizados = 0; 
 
                 }
             }
@@ -180,55 +184,55 @@ public class Jugador extends Entidad {
         // Limitar el movimiento del personaje en el eje x
         if (teclado.leftPressed == true) {
 
-            personajex -= velocidad;
+            entidad.personajex -= entidad.velocidad;
 
-            if (personajex < 0) {
+            if (entidad.personajex < 0) {
 
                 // No permitir que el personaje se salga por el lado izquierdo
-                personajex = 0; 
+                entidad.personajex = 0; 
 
             }
         } else if (teclado.rigthPressed == true) {
 
-            direccion = "Derecha";
+            entidad.direccion = "Derecha";
 
-            personajex += velocidad;
+            entidad.personajex += entidad.velocidad;
 
-            if (personajex > 950) {
+            if (entidad.personajex > 950) {
 
                 // No permitir que el personaje se salga por el lado derecho
-                personajex = 950; 
+                entidad.personajex = 950; 
 
             }
         }
 
-        areaSolida.setLocation(33 + personajex, 30 + personajey);
+        entidad.areaSolida.setLocation(33 + entidad.personajex, 30 + entidad.personajey);
 
-        Colision = false;
+        entidad.Colision = false;
 
-        juego.colisionchek.colision(this);
+        juego.colisionchek.colision(entidad);
 
-        if (Colision == false) {
+        if (entidad.Colision == false) {
 
-            contadordesprites++;
+            entidad.contadordesprites++;
 
             // Menor valor para cambiar más rápido, mayor para cambiar más lento
-            if (contadordesprites > 4) { 
+            if (entidad.contadordesprites > 4) { 
 
                 // Restablecemos el contador a 0
-                contadordesprites = 0;
+                entidad.contadordesprites = 0;
 
                 // Cambiamos al siguiente sprite según la dirección actual
-                switch (direccion) {
+                switch (entidad.direccion) {
 
                     case "Inactivo":
 
-                        spritenum++;
+                        entidad.spritenum++;
 
-                        if (spritenum > 28) {
+                        if (entidad.spritenum > 28) {
 
                             // Volvemos al primer sprite de roll al llegar al último
-                            spritenum = 1; 
+                            entidad.spritenum = 1; 
 
                         }
 
@@ -236,12 +240,12 @@ public class Jugador extends Entidad {
 
                     case "Derecha":
 
-                        spritenum++;
+                        entidad.spritenum++;
 
-                        if (spritenum > 18) {
+                        if (entidad.spritenum > 18) {
 
                             // Volvemos al primer sprite de roll al llegar al último
-                            spritenum = 1; 
+                            entidad.spritenum = 1; 
 
                         }
 
@@ -249,14 +253,14 @@ public class Jugador extends Entidad {
 
                     case "Salto":
 
-                        spritenum++;
+                        entidad.spritenum++;
 
-                        if (spritenum > 11) {
+                        if (entidad.spritenum > 11) {
 
                             // Volvemos al primer sprite de salto al llegar al último
-                            spritenum = 1; 
+                            entidad.spritenum = 1; 
 
-                            direccion = "Derecha"; // Volvemos a la dirección de roll al final del salto
+                            entidad.direccion = "Derecha"; // Volvemos a la dirección de roll al final del salto
 
                         }
 
@@ -271,29 +275,29 @@ public class Jugador extends Entidad {
         //Se dibujan los sprites segun las direcciones declaradas anteriormente
         BufferedImage imagen = null;
 
-        switch (direccion) {
+        switch (entidad.direccion) {
 
             case "Inactivo":
 
-                imagen = idelsprites[spritenum - 1];
+                imagen = entidad.idelsprites[entidad.spritenum - 1];
 
                 break;
 
             case "Derecha":
 
-                imagen = rollSprites[spritenum - 1];
+                imagen = entidad.rollSprites[entidad.spritenum - 1];
 
                 break;
 
             case "Salto":
 
-                if (spritenum - 1 < ollieSprites.length) {
+                if (entidad.spritenum - 1 < entidad.ollieSprites.length) {
 
-                    imagen = ollieSprites[spritenum - 1];
+                    imagen = entidad.ollieSprites[entidad.spritenum - 1];
 
                 } else {
 
-                    imagen = ollieSprites[0];
+                    imagen = entidad.ollieSprites[0];
 
                 }
 
@@ -301,8 +305,8 @@ public class Jugador extends Entidad {
         }
         g2.setColor(Color.red);
 
-        g2.draw(areaSolida);
+        g2.draw(entidad.areaSolida);
 
-        g2.drawImage(imagen, personajex, personajey, 200, 200, null);
+        g2.drawImage(imagen, entidad.personajex, entidad.personajey, 200, 200, null);
     }
 }
