@@ -4,18 +4,7 @@ import java.awt.image.BufferedImage;
 
 public class Entidad {
 
-    public BufferedImage[] rollSprites;
-
-    public BufferedImage[] ollieSprites;
-
-    public BufferedImage[] idelsprites;
-
-    public BufferedImage[] womanidle;
-
-    public BufferedImage[] womanheelflip;
-
-    public BufferedImage[] womanroll;
-
+    
     public BufferedImage[] rollMewtow;
 
     public BufferedImage[] heelflipMewtow;
@@ -52,18 +41,7 @@ public class Entidad {
 
     public Entidad() {
 
-        rollSprites = new BufferedImage[19];
-
-        ollieSprites = new BufferedImage[12];
-
-        idelsprites = new BufferedImage[29];
-
-        womanidle = new BufferedImage[40];
-
-        womanheelflip = new BufferedImage[12];
-
-        womanroll = new BufferedImage[18];
-
+       
         rollMewtow = new BufferedImage[27];
 
         heelflipMewtow = new BufferedImage[12];

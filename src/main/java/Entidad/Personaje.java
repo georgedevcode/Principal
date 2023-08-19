@@ -72,35 +72,7 @@ public class Personaje extends Entidad {
             heelflipMewtow[10] = ImageIO.read(new File("src/main/java/MewtowRoll/hellflip/hellflip (11).png"));
             heelflipMewtow[11] = ImageIO.read(new File("src/main/java/MewtowRoll/hellflip/hellflip (12).png"));
 
-            idelsprites[0] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_00.png"));
-            idelsprites[1] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_01.png"));
-            idelsprites[2] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_02.png"));
-            idelsprites[3] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_03.png"));
-            idelsprites[4] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_04.png"));
-            idelsprites[5] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_05.png"));
-            idelsprites[6] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_06.png"));
-            idelsprites[7] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_07.png"));
-            idelsprites[8] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_08.png"));
-            idelsprites[9] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_09.png"));
-            idelsprites[10] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_10.png"));
-            idelsprites[11] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_11.png"));
-            idelsprites[12] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_12.png"));
-            idelsprites[13] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_13.png"));
-            idelsprites[14] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_14.png"));
-            idelsprites[15] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_15.png"));
-            idelsprites[16] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_16.png"));
-            idelsprites[17] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_17.png"));
-            idelsprites[18] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_18.png"));
-            idelsprites[19] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_19.png"));
-            idelsprites[20] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_20.png"));
-            idelsprites[21] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_21.png"));
-            idelsprites[22] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_22.png"));
-            idelsprites[23] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_23.png"));
-            idelsprites[24] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_24.png"));
-            idelsprites[25] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_25.png"));
-            idelsprites[26] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_26.png"));
-            idelsprites[27] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_27.png"));
-            idelsprites[28] = ImageIO.read(new File("src/main/java/sprites/idle/skater boy-idle_28.png"));
+            
 
         } catch (IOException e) {
 
@@ -281,7 +253,7 @@ public class Personaje extends Entidad {
 
             case "Inactivo":
 
-                imagen = idelsprites[spritenum - 1];
+                
 
                 break;
 
