@@ -8,33 +8,25 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
-<<<<<<< HEAD
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-=======
-import javax.swing.ImageIcon;
->>>>>>> 4cfbe06bcd3ad163d0458a193cac7ee13c641bef
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Juego extends JPanel implements Runnable {
-    
+
     private int backgroundX = 0;
 
     private Image backgroundImage;
-    
+
     public Sonido sonido = new Sonido();
 
     private Teclado teclado = new Teclado();
 
-    private Image imagenFondo;
-    private int width = 0;
-    private int height = 0;
- 
     //Este objeto es el personaje, pero solo vamos a user al pokemon que es la Jugador3.java
-    Personaje personaje = new Personaje(this, this.teclado);
+    Personaje jugador = new Personaje(this, this.teclado);
 
     public GestorColisiones colisionchek = new GestorColisiones(this);
     //FPS
@@ -42,30 +34,15 @@ public class Juego extends JPanel implements Runnable {
 
     private Thread juegoThread; // Hilo
 
-<<<<<<< HEAD
     public Juego(JFrame parentFrame) {
 //Ajustes de pantalla
 
         this.setPreferredSize(new Dimension(1080, 600));
-
         this.setBackground(Color.black);
-
-=======
-    public Juego() {
-        //Ajustes de pantalla
->>>>>>> 4cfbe06bcd3ad163d0458a193cac7ee13c641bef
         this.setDoubleBuffered(true);
-
         this.addKeyListener(teclado);
-
         this.setFocusable(true);
-        this.cargarImagenFondoJuego();
-        this.width = this.imagenFondo.getWidth(this);
-        this.height = this.imagenFondo.getHeight(this);
-        setPreferredSize(new Dimension(this.width, this.height));
-
         LoadBackgroundImage();
-
     }
 
     public void LoadBackgroundImage() {
@@ -111,15 +88,7 @@ public class Juego extends JPanel implements Runnable {
 
     public void actualizar() {
 
-       personaje.actualizar();
-
-    }
-
-    public void cargarImagenFondoJuego(){
-
-        ImageIcon Image = new ImageIcon("src/main/java/Menu/Imagen/menu.jpeg");
-
-        this.imagenFondo = Image.getImage();
+        jugador.actualizar();
 
     }
 
@@ -145,12 +114,10 @@ public class Juego extends JPanel implements Runnable {
             
             xPos += backgroundImage.getWidth(null);
         }
-
+        
         Graphics2D g2 = (Graphics2D) g;
 
-        g.drawImage(this.imagenFondo, 0,0, null);
-
-        personaje.dibujar(g2);
+        jugador.dibujar(g2);
 
         g2.dispose();
 
@@ -180,5 +147,8 @@ public class Juego extends JPanel implements Runnable {
 
     }
 
-    
 }
+
+
+    
+
