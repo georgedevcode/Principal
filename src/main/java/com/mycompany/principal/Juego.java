@@ -7,6 +7,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -14,9 +16,13 @@ public class Juego extends JPanel implements Runnable {
     
     public Sonido sonido = new Sonido();
     private Teclado teclado = new Teclado();
+
+    private Image imagenFondo;
+    private int width = 0;
+    private int height = 0;
  
     //Este objeto es el personaje, pero solo vamos a user al pokemon que es la Jugador3.java
-    Personaje jugador = new Personaje(this, this.teclado);
+    Personaje personaje = new Personaje(this, this.teclado);
 
     public GestorColisiones colisionchek = new GestorColisiones(this);
     //FPS
@@ -25,13 +31,14 @@ public class Juego extends JPanel implements Runnable {
     private Thread juegoThread; // Hilo
 
     public Juego() {
-//Ajustes de pantalla
-
-        this.setPreferredSize(new Dimension(1080, 600));
-        this.setBackground(Color.black);
+        //Ajustes de pantalla
         this.setDoubleBuffered(true);
         this.addKeyListener(teclado);
         this.setFocusable(true);
+        this.cargarImagenFondoJuego();
+        this.width = this.imagenFondo.getWidth(this);
+        this.height = this.imagenFondo.getHeight(this);
+        setPreferredSize(new Dimension(this.width, this.height));
 
     }
 
@@ -68,7 +75,15 @@ public class Juego extends JPanel implements Runnable {
 
     public void actualizar() {
 
-       jugador.actualizar();
+       personaje.actualizar();
+
+    }
+
+    public void cargarImagenFondoJuego(){
+
+        ImageIcon Image = new ImageIcon("src/main/java/Menu/Imagen/menu.jpeg");
+
+        this.imagenFondo = Image.getImage();
 
     }
 
@@ -79,7 +94,9 @@ public class Juego extends JPanel implements Runnable {
 
         Graphics2D g2 = (Graphics2D) g;
 
-        jugador.dibujar(g2);
+        g.drawImage(this.imagenFondo, 0,0, null);
+
+        personaje.dibujar(g2);
 
         g2.dispose();
 
