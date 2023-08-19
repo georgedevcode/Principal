@@ -118,6 +118,7 @@ public class Menu extends JPanel implements KeyListener{
 
         if (keyCode == KeyEvent.VK_ENTER && !characterWindowOpened) {
 
+
             System.out.println("Iniciar juego");
             
             JFrame parentFrame = null;
