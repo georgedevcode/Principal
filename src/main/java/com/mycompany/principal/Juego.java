@@ -7,12 +7,22 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Juego extends JPanel implements Runnable {
     
+    private int backgroundX = 0;
+
+    private Image backgroundImage;
+    
     public Sonido sonido = new Sonido();
+
     private Teclado teclado = new Teclado();
  
     //Este objeto es el personaje, pero solo vamos a user al pokemon que es la Jugador3.java
@@ -24,15 +34,31 @@ public class Juego extends JPanel implements Runnable {
 
     private Thread juegoThread; // Hilo
 
-    public Juego() {
+    public Juego(JFrame parentFrame) {
 //Ajustes de pantalla
 
         this.setPreferredSize(new Dimension(1080, 600));
+
         this.setBackground(Color.black);
+
         this.setDoubleBuffered(true);
+
         this.addKeyListener(teclado);
+
         this.setFocusable(true);
 
+        LoadBackgroundImage();
+
+    }
+
+    public void LoadBackgroundImage() {
+        try {
+
+            BufferedImage image = ImageIO.read(new File("src/main/java/Background/Background.jpg"));
+            backgroundImage = image.getScaledInstance(1080, 600, Image.SCALE_SMOOTH);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void setupGame() {
@@ -77,6 +103,24 @@ public class Juego extends JPanel implements Runnable {
 
         super.paintComponent(g);
 
+        //Velocidad de desplazamiento del fondo
+        backgroundX -= 7;
+        
+        //Si el fondo se desplaza fuera de la ventana se reinicia la posicion
+        if (backgroundX < -backgroundImage.getWidth(null)) {
+
+            backgroundX = 0;
+        }
+        // Dibuja la imagen de fondo repetida
+        int xPos = backgroundX;
+        
+        while (xPos < getWidth()) {
+            
+            g.drawImage(backgroundImage, xPos, 0, this);
+            
+            xPos += backgroundImage.getWidth(null);
+        }
+
         Graphics2D g2 = (Graphics2D) g;
 
         jugador.dibujar(g2);
@@ -109,28 +153,5 @@ public class Juego extends JPanel implements Runnable {
 
     }
 
-      public void empezar() {
-
-        JFrame ventana = new JFrame();
-
-        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        ventana.setResizable(false);
-
-        ventana.setTitle("Tony Hawk's Pro Skater 2");
-
-        Juego juego = new Juego();
-
-        ventana.add(juego);
-
-        ventana.pack();
-
-        ventana.setLocationRelativeTo(null);
-
-        ventana.setVisible(true);
-
-        juego.empezarHilo();
-
-        juego.setupGame();
-    }
+    
 }

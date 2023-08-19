@@ -113,14 +113,16 @@ public class Menu extends JPanel implements KeyListener{
 
     @Override
     public void keyPressed(KeyEvent e) {
-
+        
         int keyCode = e.getKeyCode();
 
         if (keyCode == KeyEvent.VK_ENTER && !characterWindowOpened) {
 
             System.out.println("Iniciar juego");
+            
+            JFrame parentFrame = null;
 
-            Juego juego = new Juego();
+            Juego juego = new Juego(parentFrame);
 
             JFrame ventana = new JFrame();
 
@@ -142,7 +144,11 @@ public class Menu extends JPanel implements KeyListener{
 
             juego.setupGame();
 
-
+            //oculta la ventana del menu
+            JFrame menuVentana = (JFrame) SwingUtilities.getWindowAncestor(this);
+            
+            menuVentana.setVisible(false);
+        
         } else if (keyCode == KeyEvent.VK_ESCAPE) {
 
             // Cierra la aplicación
