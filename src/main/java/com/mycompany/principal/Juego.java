@@ -21,12 +21,16 @@ public class Juego extends JPanel implements Runnable {
 
     private Image backgroundImage;
 
+    public Obstaculo obstaculos = new Obstaculo();
+
+    public Enemigo enemigo = new Enemigo();
+
     public Sonido sonido = new Sonido();
 
     private Teclado teclado = new Teclado();
 
     //Este objeto es el personaje, pero solo vamos a user al pokemon que es la Jugador3.java
-    Personaje jugador = new Personaje(this, this.teclado);
+    public Personaje jugador = new Personaje(this, this.teclado);
 
     public GestorColisiones colisionchek = new GestorColisiones(this);
     //FPS
@@ -88,6 +92,10 @@ public class Juego extends JPanel implements Runnable {
 
     public void actualizar() {
 
+        obstaculos.actualizar();
+
+        enemigo.actualizar();
+
         jugador.actualizar();
 
     }
@@ -119,6 +127,10 @@ public class Juego extends JPanel implements Runnable {
 
         jugador.dibujar(g2);
 
+        enemigo.dibujar(g2);
+
+        obstaculos.dibujar(g2);
+        
         g2.dispose();
 
     }
