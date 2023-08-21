@@ -41,27 +41,27 @@ public class Enemigo {
 
         try {
 
-            Incineroar[0] = ImageIO.read(new File("src/main/java/Obstaculos/incineroar (1).png"));
+            Incineroar[0] = ImageIO.read(new File("src/main/java/Obstaculos/incineroar-1.png"));
 
-            Incineroar[1] = ImageIO.read(new File("src/main/java/Obstaculos/incineroar (2).png"));
+            Incineroar[1] = ImageIO.read(new File("src/main/java/Obstaculos/incineroar-2.png"));
 
-            Incineroar[2] = ImageIO.read(new File("src/main/java/Obstaculos/incineroar (3).png"));
+            Incineroar[2] = ImageIO.read(new File("src/main/java/Obstaculos/incineroar-3.png"));
 
-            Incineroar[3] = ImageIO.read(new File("src/main/java/Obstaculos/incineroar (4).png"));
+            Incineroar[3] = ImageIO.read(new File("src/main/java/Obstaculos/incineroar-4.png"));
 
-            Incineroar[4] = ImageIO.read(new File("src/main/java/Obstaculos/incineroar (5).png"));
+            Incineroar[4] = ImageIO.read(new File("src/main/java/Obstaculos/incineroar-5.png"));
 
-            Incineroar[5] = ImageIO.read(new File("src/main/java/Obstaculos/incineroar (6).png"));
+            Incineroar[5] = ImageIO.read(new File("src/main/java/Obstaculos/incineroar-6.png"));
 
-            Incineroar[6] = ImageIO.read(new File("src/main/java/Obstaculos/incineroar (7).png"));
+            Incineroar[6] = ImageIO.read(new File("src/main/java/Obstaculos/incineroar-7.png"));
 
-            Incineroar[7] = ImageIO.read(new File("src/main/java/Obstaculos/incineroar (8).png"));
+            Incineroar[7] = ImageIO.read(new File("src/main/java/Obstaculos/incineroar-8.png"));
 
-            Incineroar[8] = ImageIO.read(new File("src/main/java/Obstaculos/incineroar (9).png"));
+            Incineroar[8] = ImageIO.read(new File("src/main/java/Obstaculos/incineroar-9.png"));
 
-            Incineroar[9] = ImageIO.read(new File("src/main/java/Obstaculos/incineroar (10).png"));
+            Incineroar[9] = ImageIO.read(new File("src/main/java/Obstaculos/incineroar-10.png"));
 
-            Incineroar[10] = ImageIO.read(new File("src/main/java/Obstaculos/incineroar (11).png"));
+            Incineroar[10] = ImageIO.read(new File("src/main/java/Obstaculos/incineroar-11.png"));
 
         } catch (IOException e) {
 
