@@ -12,14 +12,32 @@ public class Obstaculo {
 
     Random random = new Random();
 
+    private int width1 = 200; // Tamaños de los obstaculos 
+
+    private int height1 = 75;
+
+    private int width2 = 200;
+
+    private int height2 = 100;
+
+    private int width3 = 150;
+
+    private int height3 = 75;
+
+    private int width4 = 150;
+
+    private int height4 = 75;
+
+    private int width5 = 150;
+
+    private int height5 = 75;
+
     private int x = 1100;  // Coordenadas iniciales
     
     private int y = 500;
     
     private int width = 200;  // Tamaño
-    
-    private int height = 75;
-    
+        
     private BufferedImage[] image;
     
     private int velocidad = 5; 
@@ -71,6 +89,37 @@ public class Obstaculo {
         // Dibujar el obstáculo en el g2
         BufferedImage obstacle = image[this.randNumber];
 
-        g2.drawImage(obstacle, x, y, width, height, null);
+        int obstacleWidth = 0;
+        int obstacleHeight = 0;
+
+        // Seleccionar el tamaño de acuerdo al número aleatorio
+        switch (this.randNumber) {
+            case 0:
+                obstacleWidth = width1;
+                obstacleHeight = height1;
+                break;
+            case 1:
+                obstacleWidth = width2;
+                obstacleHeight = height2;
+                break;
+            case 2:
+                obstacleWidth = width2;
+                obstacleHeight = height2;
+                break;
+            case 3:
+                obstacleWidth = width2;
+                obstacleHeight = height2;
+                break;
+            case 4:
+                obstacleWidth = width2;
+                obstacleHeight = height2;
+                break;
+            case 5:
+                obstacleWidth = width2;
+                obstacleHeight = height2;
+                break;
+        }
+
+        g2.drawImage(obstacle, x, y, obstacleWidth, obstacleHeight, null);
     }
 }

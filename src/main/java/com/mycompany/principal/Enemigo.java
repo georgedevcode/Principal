@@ -103,7 +103,7 @@ public class Enemigo {
                 }
             } else {
 
-                x -= 15; // Desplazar hacia la izquierda después de la animación
+                x -= 12; // Velocidad de dezplazamiento del incineroar
 
                 if (x < -300) {
 
