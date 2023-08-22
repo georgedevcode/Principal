@@ -1,7 +1,6 @@
 
 package com.mycompany.principal;
 
-
 import Entidad.Personaje;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -170,6 +169,8 @@ public class Juego extends JPanel implements Runnable {
         sonido.setFile(i);
 
         sonido.play();
+
+        sonido.setVolume(0.1f);
 
         sonido.loop();
 

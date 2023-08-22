@@ -3,7 +3,6 @@ package com.mycompany.principal;
 import java.awt.Rectangle;
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.Image;
 import java.util.Random;
 import java.io.File;
 import java.io.IOException;
@@ -26,18 +25,6 @@ public class Obstaculo {
     private int width2 = 200;
 
     private int height2 = 100;
-
-    private int width3 = 150;
-
-    private int height3 = 75;
-
-    private int width4 = 150;
-
-    private int height4 = 75;
-
-    private int width5 = 150;
-
-    private int height5 = 75;
 
     private int x = 1100;  // Coordenadas iniciales
     

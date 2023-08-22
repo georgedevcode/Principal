@@ -4,7 +4,6 @@ import com.mycompany.principal.Obstaculo;
 import com.mycompany.principal.Teclado;
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.List;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
