@@ -8,6 +8,8 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
+import Entidad.Personaje;
+
 public class Enemigo {
 
     public Rectangle areaSolida = new Rectangle(70, 110);
@@ -35,6 +37,10 @@ public class Enemigo {
         Incineroar = new BufferedImage[11];
 
         getImagenEnemy();
+    }
+
+    public Rectangle getBoundingBox() {
+        return areaSolida;
     }
 
     public void getImagenEnemy() {
@@ -67,6 +73,28 @@ public class Enemigo {
 
             e.printStackTrace();
         }
+    }
+
+     public boolean checkCollisionWithCharacter(Personaje character) {
+
+        // Check if the bounding box of the enemy intersects with the character's bounding box
+        return areaSolida.intersects(character.getBoundingBox());
+        
+    }
+
+    public void handleCollisionWithCharacter(Personaje character) {
+
+        if (checkCollisionWithCharacter(character)) {
+    
+            character.decreaseLives(); // Decrease character's lives by 1
+
+            addAction("Hit the character and character lost a life");
+        }
+    }
+
+    private void addAction(String action) {
+        // You can add this action to the list of actions for later display
+        // actions.add(action);
     }
 
     public void actualizar() {

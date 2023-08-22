@@ -1,19 +1,28 @@
 package Entidad;
 import com.mycompany.principal.Juego;
+import com.mycompany.principal.Obstaculo;
 import com.mycompany.principal.Teclado;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.List;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import java.util.ArrayList;
 
 public class Personaje extends Entidad {
 
     Juego juego;
 
     Teclado teclado;
+
+    public int score = 0;
+
+    public int lives = 3;
+
+    private ArrayList<String> actions = new ArrayList<String>();
 
     public Personaje(Juego juego, Teclado teclado) {
 
@@ -27,6 +36,42 @@ public class Personaje extends Entidad {
 
         getImagenJugador();
 
+    }
+
+    public Rectangle getBoundingBox() {
+        return areaSolida;
+    }
+
+     public boolean checkCollisionWithObstacle(Obstaculo obstacle) {
+        // Check if the bounding box of the character intersects with the obstacle's bounding box
+        return areaSolida.intersects(obstacle.getBoundingBox());
+    }
+
+    public void handleCollisionWithObstacle(Obstaculo obstacle) {
+        if (checkCollisionWithObstacle(obstacle)) {
+            // Deduct 10 points for hitting an obstacle
+            decreaseScore(10);
+            addAction("Hit an obstacle and lost 10 points");
+        }
+    }
+
+    private void increaseScore(int points) {
+        score += points;
+    }
+
+    private void decreaseScore(int points) {
+        score -= points;
+    }
+
+    // Helper method to update the player's lives
+    public void decreaseLives() {
+        lives = lives - 1;
+        addAction("Got hit by the enemy and lost a life");
+    }
+
+    // Helper method to record actions
+    private void addAction(String action) {
+        actions.add(action);
     }
 
     public void getImagenJugador() {

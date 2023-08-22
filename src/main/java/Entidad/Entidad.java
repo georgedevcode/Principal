@@ -4,7 +4,6 @@ import java.awt.image.BufferedImage;
 
 public class Entidad {
 
-    
     public BufferedImage[] rollMewtow;
 
     public BufferedImage[] heelflipMewtow;

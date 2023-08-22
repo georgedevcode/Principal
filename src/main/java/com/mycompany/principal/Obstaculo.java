@@ -1,11 +1,15 @@
 package com.mycompany.principal;
 
+import java.awt.Rectangle;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.util.Random;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+
+import Entidad.Personaje;
+
 import java.awt.image.BufferedImage;
 
 public class Obstaculo {
@@ -72,5 +76,15 @@ public class Obstaculo {
         BufferedImage obstacle = image[this.randNumber];
 
         g2.drawImage(obstacle, x, y, width, height, null);
+    }
+
+     public Rectangle getBoundingBox() {
+        return new Rectangle(x, y, width, height);
+    }
+
+    public boolean checkCollisionWithCharacter(Personaje character) {
+        Rectangle characterBoundingBox = character.getBoundingBox();
+        Rectangle obstacleBoundingBox = getBoundingBox();
+        return characterBoundingBox.intersects(obstacleBoundingBox);
     }
 }
