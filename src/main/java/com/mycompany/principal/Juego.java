@@ -108,7 +108,7 @@ public class Juego extends JPanel implements Runnable {
 
                 this.gameRunning = false;
 
-                if (jugador.score >= 1000) {
+                if (jugador.score >= 5000) {
 
                     System.out.println("Jugador gano");
                     
