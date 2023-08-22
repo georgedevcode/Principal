@@ -122,7 +122,7 @@ public class Juego extends JPanel implements Runnable {
 
         enemigo.actualizar();
 
-        // jugador.handleCollisionWithObstacle(obstaculos);
+        jugador.handleCollisionWithObstacle(obstaculos);
 
         enemigo.handleCollisionWithCharacter(jugador);
 

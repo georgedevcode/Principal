@@ -42,18 +42,19 @@ public class Personaje extends Entidad {
         return areaSolida;
     }
 
-    //  public boolean checkCollisionWithObstacle(Obstaculo obstacle) {
-    //     // Check if the bounding box of the character intersects with the obstacle's bounding box
-    //     return areaSolida.intersects(obstacle.getBoundingBox());
-    // }
+     public boolean checkCollisionWithObstacle(Obstaculo obstacle) {
+        // Check if the bounding box of the character intersects with the obstacle's bounding box
+        return areaSolida.intersects(obstacle.getBoundingBox());
+    }
 
-    // public void handleCollisionWithObstacle(Obstaculo obstacle) {
-    //     if (checkCollisionWithObstacle(obstacle)) {
-    //         // Deduct 10 points for hitting an obstacle
-    //         decreaseScore(10);
-    //         addAction("Hit an obstacle and lost 10 points");
-    //     }
-    // }
+    public void handleCollisionWithObstacle(Obstaculo obstacle) {
+        if (checkCollisionWithObstacle(obstacle)) {
+            // Deduct 10 points for hitting an obstacle
+            decreaseScore(10);
+            System.out.println("Decrease: 10 points");
+            addAction("Hit an obstacle and lost 10 points");
+        }
+    }
 
     private void increaseScore(int points) {
         score += points;
