@@ -81,14 +81,18 @@ public class Enemigo {
         return areaSolida.intersects(character.getBoundingBox());
         
     }
+    
+    private boolean hasCollided = false; // La colision se mantiene en falso 
 
     public void handleCollisionWithCharacter(Personaje character) {
 
-        if (checkCollisionWithCharacter(character)) {
-    
-            character.decreaseLives(); // Decrease character's lives by 1
+        if (checkCollisionWithCharacter(character) && !hasCollided) {
+
+            character.decreaseLives();
 
             addAction("Hit the character and character lost a life");
+
+            hasCollided = true; // La colision se confirma 
         }
     }
 
@@ -134,6 +138,8 @@ public class Enemigo {
                 x -= 12; // Velocidad de dezplazamiento del incineroar
 
                 if (x < -300) {
+
+                    hasCollided = false; //a medida que pasa el personaje la colision vuelve a ser falsa
 
                     animacionTerminada = false;
 
