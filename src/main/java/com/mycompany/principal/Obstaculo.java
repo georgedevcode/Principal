@@ -38,6 +38,9 @@ public class Obstaculo {
     
     private int randNumber = 0;
     
+    private boolean colisionDetectada = false; // Variable de control de colisión
+
+    
 // Velocidad de desplazamiento
     private int limiteIzquierdo = -width;  // Límite izquierdo para volver a dibujar
 
@@ -72,10 +75,10 @@ public class Obstaculo {
         x -= velocidad;
 
         // Si el obstáculo sale de la pantalla por la izquierda, reinicia su posición
-        if (x < limiteIzquierdo) {
-            
-            x = 1000;  // Reinicia la posición a la derecha
+       if (x < limiteIzquierdo) {
+            x = 1000; // Reinicia la posición a la derecha
             this.randNumber = random.nextInt(image.length);
+            colisionDetectada = false; // Reinicia la variable de control de colisión
         }
     }
 
@@ -128,11 +131,15 @@ public class Obstaculo {
     }
 
     public boolean checkCollisionWithCharacter(Personaje character) {
-        Rectangle characterBoundingBox = character.getBoundingBox();
-
-        Rectangle obstacleBoundingBox = getBoundingBox();
-
-        return characterBoundingBox.intersects(obstacleBoundingBox);
+        if (!colisionDetectada) { // Si no se ha detectado colisión previamente
+            Rectangle characterBoundingBox = character.getBoundingBox();
+            Rectangle obstacleBoundingBox = getBoundingBox();
+            
+            if (characterBoundingBox.intersects(obstacleBoundingBox)) {
+                colisionDetectada = true; // Establece la colisión detectada
+                return true;
+            }
+        }
+        return false;
     }
-
 }

@@ -23,6 +23,9 @@ public class Personaje extends Entidad {
 
     private ArrayList<String> actions = new ArrayList<String>();
 
+    private boolean colisionDetectada = false; // Variable de control de colisión
+
+
     public Personaje(Juego juego, Teclado teclado) {
 
         this.juego = juego;
@@ -47,11 +50,25 @@ public class Personaje extends Entidad {
     }
 
     public void handleCollisionWithObstacle(Obstaculo obstacle) {
+         
         if (checkCollisionWithObstacle(obstacle)) {
-            // Deduct 10 points for hitting an obstacle
-            decreaseScore(10);
-            System.out.println("Decrease: 10 points");
-            addAction("Hit an obstacle and lost 10 points");
+            
+            if (!colisionDetectada) {
+                
+                // Resta 10 puntos por golpear un obstáculo
+                
+                decreaseScore(10);
+                
+                System.out.println("Decrease: 10 points");
+                
+                addAction("Hit an obstacle and lost 10 points");
+                
+                colisionDetectada = true; // Marcar que se ha detectado una colisión
+            }            
+
+        } else {
+            
+            colisionDetectada = false; // Reiniciar la variable si no hay colisión
         }
     }
 
