@@ -16,6 +16,10 @@ import javax.swing.JPanel;
 
 public class Juego extends JPanel implements Runnable {
 
+    public int puntosGanadosPorPartida = 0;
+
+    public int puntosPerdidosPorPartida = 0;
+
     private int backgroundX = 0;
 
     private Image backgroundImage;

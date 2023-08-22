@@ -61,6 +61,8 @@ public class Personaje extends Entidad {
                 // Resta 10 puntos por golpear un obstáculo
                 
                 decreaseScore(10);
+
+                juego.puntosPerdidosPorPartida += 10;
                 
                 System.out.println("Decrease: 10 points");
                 
@@ -74,6 +76,8 @@ public class Personaje extends Entidad {
             int randomPuntaje = rand.nextInt(5);
 
             int puntos = (2 * randomPuntaje);
+
+            juego.puntosGanadosPorPartida += puntos;
 
             increaseScore(puntos);
 
