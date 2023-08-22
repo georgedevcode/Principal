@@ -10,8 +10,11 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Personaje extends Entidad {
+
+    Random rand = new Random();
 
     Juego juego;
 
@@ -66,23 +69,40 @@ public class Personaje extends Entidad {
                 colisionDetectada = true; // Marcar que se ha detectado una colisión
             }            
 
-        } else {
+        } else if (colisionDetectada == false && estaSaltando == true) {
+
+            int randomPuntaje = rand.nextInt(5);
+
+            int puntos = (2 * randomPuntaje);
+
+            increaseScore(puntos);
+
+            System.out.println("Increase points" + puntos);
+
+        }
+        else {
             
             colisionDetectada = false; // Reiniciar la variable si no hay colisión
         }
     }
 
-    private void increaseScore(int points) {
+    private void increaseScore(long points) {
+
         score += points;
+
     }
 
     private void decreaseScore(int points) {
+
         score -= points;
+
     }
 
     // Helper method to update the player's lives
     public void decreaseLives() {
+
         lives = lives - 1;
+
         addAction("Got hit by the enemy and lost a life");
     }
 
@@ -314,8 +334,6 @@ public class Personaje extends Entidad {
         switch (direccion) {
 
             case "Inactivo":
-
-                
 
                 break;
 

@@ -104,9 +104,19 @@ public class Juego extends JPanel implements Runnable {
                 delta--;
             }
 
-            if(jugador.score >= 100 || jugador.lives == 0){
+            if(jugador.score >= 5000  || jugador.lives == 0){
 
                 this.gameRunning = false;
+
+                if (jugador.score >= 1000) {
+
+                    System.out.println("Jugador gano");
+                    
+                } else {
+
+                    System.out.println("Jugador perdio");
+
+                }
 
             }
 
