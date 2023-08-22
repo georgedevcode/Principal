@@ -127,13 +127,15 @@ public class Obstaculo {
         g2.drawImage(obstacle, x, y, obstacleWidth, obstacleHeight, null);
     }
 
-     public Rectangle getBoundingBox() {
-        return new Rectangle(x, y, width, height);
-    }
+    //  public Rectangle getBoundingBox() {
+    //     return new Rectangle(x, y, width, height);
+    // }
 
-    public boolean checkCollisionWithCharacter(Personaje character) {
-        Rectangle characterBoundingBox = character.getBoundingBox();
-        Rectangle obstacleBoundingBox = getBoundingBox();
-        return characterBoundingBox.intersects(obstacleBoundingBox);
-    }
+    // public boolean checkCollisionWithCharacter(Personaje character) {
+    //     Rectangle characterBoundingBox = character.getBoundingBox();
+
+    //     // Rectangle obstacleBoundingBox = getBoundingBox();
+
+    //     return characterBoundingBox.intersects(obstacleBoundingBox);
+    // }
 }
