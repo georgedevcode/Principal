@@ -1,6 +1,7 @@
 package com.mycompany.principal;
 
 import java.awt.Rectangle;
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.util.Random;
@@ -15,6 +16,8 @@ import java.awt.image.BufferedImage;
 public class Obstaculo {
 
     Random random = new Random();
+
+    public Rectangle areaSolida = new Rectangle(70, 60);
 
     private int width1 = 200; // Tamaños de los obstaculos 
 
@@ -76,6 +79,8 @@ public class Obstaculo {
 
     public void actualizar() {
 
+        areaSolida.setLocation(70 + x, 30 + y);
+
         // Mueve el obstáculo hacia la izquierda
         x -= velocidad;
 
@@ -123,6 +128,10 @@ public class Obstaculo {
                 obstacleHeight = height2;
                 break;
         }
+
+        g2.setColor(Color.red);
+
+        g2.draw(areaSolida);
 
         g2.drawImage(obstacle, x, y, obstacleWidth, obstacleHeight, null);
     }
