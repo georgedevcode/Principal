@@ -62,8 +62,6 @@ public class Personaje extends Entidad {
                 
                 decreaseScore(10);
 
-                juego.puntosPerdidosPorPartida += 10;
-                
                 System.out.println("Decrease: 10 points");
                 
                 addAction("Hit an obstacle and lost 10 points");

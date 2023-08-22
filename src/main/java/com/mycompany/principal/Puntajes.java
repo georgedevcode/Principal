@@ -14,40 +14,32 @@ public class Puntajes implements Serializable {
 
     private int puntosGanados = 0;
 
-    private int puntosPerdidos = 0;
-
-    private int datosActuales = 0;
-
     public Puntajes(Juego juego) {
 
         this.puntosGanados = juego.puntosGanadosPorPartida;
 
-        this.puntosPerdidos = juego.puntosPerdidosPorPartida;
-
     }
     
-    // public void cargarPuntajes(){
+     public void cargarPuntajes(){
 
-    //     try {
+         try {
 
-    //         ObjectInputStream ois = new ObjectInputStream(new FileInputStream("puntos.txt"));
+           ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Puntajes.txt"));
 
-    //         this.datosActuales = (Map<String, >) ois.readObject();
+            this.puntosGanados =  readObject();
 
-    //     } catch (IOException | ClassNotFoundException e) { 
-    //         // TODO: handle exception
-    //     }
+       } catch (IOException | ClassNotFoundException e) { 
+            
+     }
 
-    // }
+ }
 
     public void guardarPuntajes(){
 
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Puntajes.txt"))) {
 
             oos.writeObject(this.puntosGanados);
-
-            oos.writeObject(this.puntosPerdidos);
-
+        
             System.out.println("Información guardada en el archivo");
 
         } catch (IOException e) {
@@ -59,7 +51,43 @@ public class Puntajes implements Serializable {
 
     }
 
-    public void quickSortPuntajes(){}
+   public static void quicksort(int a[]) {
+        quicksort(a, 0, a.length - 1);
+    }
 
+    private static void quicksort(int a[], int primero, int ultimo) {
+        int i, j, central;
+        double pivote;
+        central = (primero + ultimo) / 2;
+        pivote = a[central];
+        i = primero;
+        j = ultimo;
+        do {
+            while (a[i] < pivote) {
+                i++;
+            }
+            while (a[j] > pivote) {
+                j--;
+            }
+            if (i <= j) {
+                intercambiar(a, i, j);
+                i++;
+                j--;
+            }
+        } while (i <= j);
+        if (primero < j) {
+            quicksort(a, primero, j);
+        }
+        if (i < ultimo) {
+            quicksort(a, i, ultimo);
+        }
+    }
+
+    public static void intercambiar(int[] a, int i, int j) {
+        int aux = a[i];
+        a[i] = a[j];
+        a[j] = aux;
+    }
 }
+
 
