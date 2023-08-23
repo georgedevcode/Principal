@@ -54,7 +54,7 @@ public class Puntajes {
         for (int i = 0; i < puntosList.size(); i++) {
 
             puntos[i] = puntosList.get(i);
-            
+
         }
 
         return puntos;
@@ -136,10 +136,10 @@ public class Puntajes {
         j = ultimo;
         
         do {
-            while (a[i] < pivote) {
+            while (a[i] > pivote) {
                 i++;
             }
-            while (a[j] > pivote) {
+            while (a[j] < pivote) {
                 j--;
             }
             if (i <= j) {
