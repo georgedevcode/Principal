@@ -12,8 +12,6 @@ import Entidad.Personaje;
 
 public class Puntajes {
 
-    // private int puntos[];
-
     public Puntajes(Personaje jugador) {
 
     }

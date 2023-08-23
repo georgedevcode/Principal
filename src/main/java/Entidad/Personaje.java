@@ -10,7 +10,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Personaje extends Entidad {
@@ -25,7 +24,7 @@ public class Personaje extends Entidad {
 
     public int lives = 3;
 
-    private ArrayList<String> actions = new ArrayList<String>();
+    
 
     private boolean colisionDetectada = false; // Variable de control de colisión
 
@@ -67,7 +66,7 @@ public class Personaje extends Entidad {
 
                 System.out.println("Decrease: 10 points");
                 
-                addAction("Hit an obstacle and lost 10 points");
+              
                 
                 colisionDetectada = true; // Marcar que se ha detectado una colisión
             }            
@@ -108,13 +107,10 @@ public class Personaje extends Entidad {
 
         juego.playEfectos(1);
 
-        addAction("Got hit by the enemy and lost a life");
+        
     }
 
-    // Helper method to record actions
-    private void addAction(String action) {
-        actions.add(action);
-    }
+   
 
     public void getImagenJugador() {
 
@@ -331,10 +327,6 @@ public class Personaje extends Entidad {
         BufferedImage imagen = null;
 
         switch (direccion) {
-
-            case "Inactivo":
-
-                break;
 
             case "Derecha":
 

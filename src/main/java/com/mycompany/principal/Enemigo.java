@@ -13,7 +13,7 @@ public class Enemigo {
 
     public Rectangle areaSolida = new Rectangle(70, 110);
 
-    private long tiempoEspera = 10000; // Tiempo de espera en milisegundos (40 segundos)
+    private long tiempoEspera = 10000; // Tiempo de espera en milisegundos (10 segundos)
 
     private long tiempoUltimaAparicion = 0;
 
@@ -89,16 +89,11 @@ public class Enemigo {
 
             character.decreaseLives();
 
-            addAction("Hit the character and character lost a life");
-
             hasCollided = true; // La colision se confirma 
         }
     }
 
-    private void addAction(String action) {
-        // You can add this action to the list of actions for later display
-        // actions.add(action);
-    }
+   
 
     public void actualizar() {
 
