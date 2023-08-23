@@ -60,6 +60,11 @@ public class Personaje extends Entidad implements GestorColisionesInt{
     };
 
     @Override
+    public void handleCollisionWithCharacter(Personaje character){
+        return;
+    };
+
+    @Override
     public void handleCollisionWithObstacle(Obstaculo obstacle) {
          
         if (checkCollisionWithObstacle(obstacle)) {

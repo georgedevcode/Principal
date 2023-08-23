@@ -10,4 +10,6 @@ public interface GestorColisionesInt {
 
     public void handleCollisionWithObstacle(Obstaculo obstacle);
 
+    public void handleCollisionWithCharacter(Personaje character);
+
 }

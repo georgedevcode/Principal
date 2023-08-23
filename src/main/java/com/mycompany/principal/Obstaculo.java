@@ -150,4 +150,9 @@ public class Obstaculo implements GestorColisionesInt{
     public void handleCollisionWithObstacle(Obstaculo obstacle){
         return;
     };
+
+    @Override
+    public void handleCollisionWithCharacter(Personaje character){
+        return;
+    };
 }

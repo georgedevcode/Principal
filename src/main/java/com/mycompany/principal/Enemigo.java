@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 
 import Entidad.Personaje;
 
-public class Enemigo {
+public class Enemigo implements GestorColisionesInt{
 
     public Rectangle areaSolida = new Rectangle(70, 110);
 
@@ -74,7 +74,8 @@ public class Enemigo {
         }
     }
 
-     public boolean checkCollisionWithCharacter(Personaje character) {
+    @Override
+    public boolean checkCollisionWithCharacter(Personaje character) {
 
         // Check if the bounding box of the enemy intersects with the character's bounding box
         return areaSolida.intersects(character.getBoundingBox());
@@ -82,7 +83,8 @@ public class Enemigo {
     }
     
     private boolean hasCollided = false; // La colision se mantiene en falso 
-
+    
+    @Override
     public void handleCollisionWithCharacter(Personaje character) {
 
         if (checkCollisionWithCharacter(character) && !hasCollided) {
@@ -92,6 +94,19 @@ public class Enemigo {
             hasCollided = true; // La colision se confirma 
         }
     }
+
+  
+    @Override
+    public boolean checkCollisionWithObstacle(Obstaculo obstacle){
+        return false;
+    };
+
+    @Override
+    public void handleCollisionWithObstacle(Obstaculo obstacle){
+        return;
+    };
+
+
 
    
 
