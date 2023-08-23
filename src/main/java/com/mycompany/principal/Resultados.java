@@ -55,3 +55,4 @@ public class Resultados extends JFrame {
         container.add(cargarButton, BorderLayout.SOUTH);
     }
     }
+//prueba
