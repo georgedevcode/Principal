@@ -1,7 +1,6 @@
 package com.mycompany.principal;
 
 import java.awt.Rectangle;
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.Random;
 import java.io.File;
@@ -119,9 +118,7 @@ public class Obstaculo {
                 break;
         }
 
-        g2.setColor(Color.red);
-
-        g2.draw(areaSolida);
+       
 
         g2.drawImage(obstacle, x, y, obstacleWidth, obstacleHeight, null);
     }

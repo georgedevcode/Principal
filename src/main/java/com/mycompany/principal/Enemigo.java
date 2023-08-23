@@ -1,6 +1,5 @@
 package com.mycompany.principal;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -160,11 +159,7 @@ public class Enemigo {
         if (visible) {
 
             BufferedImage imagen = Incineroar[spritenum - 1];
-            
-            g2.setColor(Color.red);
-            
-            g2.draw(areaSolida);
-
+        
             g2.drawImage(imagen, x, y, 300, 200, null);
         }
     }

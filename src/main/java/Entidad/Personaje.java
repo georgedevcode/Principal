@@ -3,6 +3,7 @@ import com.mycompany.principal.Juego;
 import com.mycompany.principal.Obstaculo;
 import com.mycompany.principal.Teclado;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -62,6 +63,8 @@ public class Personaje extends Entidad {
                 
                 decreaseScore(10);
 
+                juego.playEfectos(1);
+
                 System.out.println("Decrease: 10 points");
                 
                 addAction("Hit an obstacle and lost 10 points");
@@ -102,6 +105,8 @@ public class Personaje extends Entidad {
     public void decreaseLives() {
 
         lives = lives - 1;
+
+        juego.playEfectos(1);
 
         addAction("Got hit by the enemy and lost a life");
     }
@@ -265,13 +270,7 @@ public class Personaje extends Entidad {
         }
 
         areaSolida.setLocation(120 + personajex, 30 + personajey);
-
-        Colision = false;
-
-        juego.colisionchek.colision(this);
-
-        if (Colision == false) {
-
+ 
             contadordesprites++;
 
             // Menor valor para cambiar más rápido, mayor para cambiar más lento
@@ -324,7 +323,7 @@ public class Personaje extends Entidad {
                 }
             }
         }
-    }
+    
 
     public void dibujar(Graphics2D g2) {
 
@@ -358,10 +357,19 @@ public class Personaje extends Entidad {
                 break;
         }
 
-        g2.setColor(Color.red);
-
-        g2.draw(areaSolida);
-        
         g2.drawImage(imagen, personajex, personajey, 300, 200, null);
+
+        // Dibujar vidas y puntaje en la pantalla
+        g2.setColor(Color.WHITE);
+        g2.setFont(new Font("Arial", Font.BOLD, 20));
+
+        // Dibujar vidas en el margen superior izquierdo
+        String livesText = "Vidas: " + lives;
+        g2.drawString(livesText, 20, 30);
+
+        // Dibujar puntaje en el margen superior derecho
+        String scoreText = "Puntaje: " + score;
+        int scoreTextWidth = g2.getFontMetrics().stringWidth(scoreText);
+        g2.drawString(scoreText, juego.getWidth() - scoreTextWidth - 20, 30);
     }
 }

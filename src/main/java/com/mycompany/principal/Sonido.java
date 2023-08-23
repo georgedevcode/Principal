@@ -9,11 +9,12 @@ public class Sonido {
 
     Clip clip;
 
-    File[] sonidoFiles = new File[30];
+    File[] sonidoFiles = new File[3];
 
     public Sonido() {
 
         sonidoFiles[0] = new File("src/main/java/Sonido/armagedon.wav");
+        sonidoFiles[1] = new File("src/main/java/Sonido/Golpe.wav");
 
     }
 

@@ -35,7 +35,6 @@ public class Juego extends JPanel implements Runnable {
 
     public Puntajes puntajes = new Puntajes(jugador);
 
-    public GestorColisiones colisionchek = new GestorColisiones(this);
 
     //FPS
     private int FPS = 70;
