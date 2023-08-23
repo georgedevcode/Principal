@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Juego extends JPanel implements Runnable {
@@ -121,7 +122,7 @@ public class Juego extends JPanel implements Runnable {
 
                 if (jugador.score >= 5000) {
 
-                    System.out.println("Jugador gano");
+                    JOptionPane.showMessageDialog(null, "Has Ganado" + "\n" + "Tu puntaje es: " + jugador.score);
 
                     try {
 
@@ -136,7 +137,7 @@ public class Juego extends JPanel implements Runnable {
                     
                 } else {
 
-                    System.out.println("Jugador perdio");
+                    JOptionPane.showMessageDialog(null, "Has Perdido" + "\n" + "Tu puntaje es: " + jugador.score);
 
                      try {
                         
