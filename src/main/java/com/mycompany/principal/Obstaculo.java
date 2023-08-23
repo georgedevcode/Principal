@@ -11,7 +11,7 @@ import Entidad.Personaje;
 
 import java.awt.image.BufferedImage;
 
-public class Obstaculo {
+public class Obstaculo implements GestorColisionesInt{
 
     Random random = new Random();
 
@@ -127,6 +127,7 @@ public class Obstaculo {
         return areaSolida;
     }
 
+    @Override
     public boolean checkCollisionWithCharacter(Personaje character) {
         if (!colisionDetectada) { // Si no se ha detectado colisión previamente
             Rectangle characterBoundingBox = character.getBoundingBox();
@@ -139,4 +140,14 @@ public class Obstaculo {
         }
         return false;
     }
+
+    @Override
+    public boolean checkCollisionWithObstacle(Obstaculo obstacle){
+        return false;
+    };
+
+    @Override
+    public void handleCollisionWithObstacle(Obstaculo obstacle){
+        return;
+    };
 }

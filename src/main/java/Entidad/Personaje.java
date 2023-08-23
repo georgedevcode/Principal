@@ -1,4 +1,5 @@
 package Entidad;
+import com.mycompany.principal.GestorColisionesInt;
 import com.mycompany.principal.Juego;
 import com.mycompany.principal.Obstaculo;
 import com.mycompany.principal.Teclado;
@@ -12,7 +13,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.util.Random;
 
-public class Personaje extends Entidad {
+public class Personaje extends Entidad implements GestorColisionesInt{
 
     Random rand = new Random();
 
@@ -47,11 +48,18 @@ public class Personaje extends Entidad {
         return areaSolida;
     }
 
-     public boolean checkCollisionWithObstacle(Obstaculo obstacle) {
+    @Override
+    public boolean checkCollisionWithObstacle(Obstaculo obstacle) {
         // Check if the bounding box of the character intersects with the obstacle's bounding box
         return areaSolida.intersects(obstacle.getBoundingBox());
     }
 
+    @Override
+    public boolean checkCollisionWithCharacter(Personaje character){
+        return false;
+    };
+
+    @Override
     public void handleCollisionWithObstacle(Obstaculo obstacle) {
          
         if (checkCollisionWithObstacle(obstacle)) {
