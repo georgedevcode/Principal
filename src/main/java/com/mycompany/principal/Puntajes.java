@@ -4,36 +4,60 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import Entidad.Personaje; 
 
 
 public class Puntajes {
 
-
-    private int puntos[];
+    // private int puntos[];
 
     public Puntajes(Personaje jugador) {
 
     }
 
-    public void cargarPuntajes() throws IOException{
+    public int[] cargarPuntajes() throws IOException{
 
         String filePath = "Puntajes.txt"; // Specify the path to your text file
 
-        try {
-            
-            puntos = readNumbersFromFile(filePath);
+        List<Integer> puntosList = new ArrayList<>();
 
-            for (int num : puntos) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))) {
 
-                System.out.println(num);
+            String line;
 
+            while ((line = bufferedReader.readLine()) != null) {
+
+                try {
+
+                    int num = Integer.parseInt(line.trim());
+
+                    puntosList.add(num);
+
+                } catch (NumberFormatException e) {
+
+                    // Handle invalid numbers or non-integer lines if needed
+                    System.err.println("Invalid number in file: " + line);
+                }
             }
+
         } catch (IOException e) {
 
             e.printStackTrace();
-
         }
+
+        // Convert List<Integer> to int[]
+        int[] puntos = new int[puntosList.size()];
+
+        for (int i = 0; i < puntosList.size(); i++) {
+
+            puntos[i] = puntosList.get(i);
+            
+        }
+
+        return puntos;
 
     }
 
@@ -92,16 +116,25 @@ public class Puntajes {
     }
 
    public static void quicksort(int a[]) {
+
         quicksort(a, 0, a.length - 1);
+
     }
 
     private static void quicksort(int a[], int primero, int ultimo) {
+
         int i, j, central;
+
         double pivote;
+
         central = (primero + ultimo) / 2;
+
         pivote = a[central];
+
         i = primero;
+
         j = ultimo;
+        
         do {
             while (a[i] < pivote) {
                 i++;
@@ -115,12 +148,12 @@ public class Puntajes {
                 j--;
             }
         } while (i <= j);
-        if (primero < j) {
-            quicksort(a, primero, j);
-        }
-        if (i < ultimo) {
-            quicksort(a, i, ultimo);
-        }
+            if (primero < j) {
+                quicksort(a, primero, j);
+            }
+            if (i < ultimo) {
+                quicksort(a, i, ultimo);
+            }
     }
 
     public static void intercambiar(int[] a, int i, int j) {

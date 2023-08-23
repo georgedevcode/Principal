@@ -130,7 +130,14 @@ public class Juego extends JPanel implements Runnable {
                     System.out.println("Jugador perdio");
 
                      try {
+                        
                         puntajes.guardarPuntajes(jugador.score);
+
+                        int puntaje[] = puntajes.cargarPuntajes();
+
+                        Puntajes.quicksort(puntaje);
+
+                        System.out.println(puntaje);
 
                     } catch (IOException e) {
 
