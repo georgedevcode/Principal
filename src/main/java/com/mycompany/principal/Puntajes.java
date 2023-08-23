@@ -1,54 +1,97 @@
 package com.mycompany.principal;
-
-import java.io.Serializable;
-
-import javax.swing.JOptionPane;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import Entidad.Personaje; 
 
 
-public class Puntajes implements Serializable {
+public class Puntajes {
 
     private int puntosGanados = 0;
 
-    public Puntajes(Juego juego) {
+    private int puntos[];
 
-        this.puntosGanados = juego.puntosGanadosPorPartida;
+    public Puntajes(Personaje jugador) {
+
+        this.puntosGanados = jugador.score;
 
     }
-    
-     public void cargarPuntajes(){
 
-         try {
+    public void cargarPuntajes() throws IOException{
 
-           ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Puntajes.txt"));
+        String filePath = "Puntajes.txt"; // Specify the path to your text file
 
-            this.puntosGanados =  readObject();
-
-       } catch (IOException | ClassNotFoundException e) { 
+        try {
             
-     }
+            puntos = readNumbersFromFile(filePath);
 
- }
+            for (int num : puntos) {
 
-    public void guardarPuntajes(){
+                System.out.println(num);
 
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Puntajes.txt"))) {
-
-            oos.writeObject(this.puntosGanados);
-        
-            System.out.println("Información guardada en el archivo");
-
+            }
         } catch (IOException e) {
 
-            JOptionPane.showMessageDialog(null, "Error al guardar el archivo", "Error", JOptionPane.ERROR_MESSAGE);
-
             e.printStackTrace();
+
         }
 
+    }
+
+    public void guardarPuntajes() throws IOException{
+
+        FileWriter fw = new FileWriter("Puntajes.txt", true);
+        
+        BufferedWriter bufferedWriter = new BufferedWriter(fw);
+
+        // Convert puntosGanados to a String and then write it
+        String puntosStr = Integer.toString(this.puntosGanados);
+        bufferedWriter.write(puntosStr);
+
+        // Add a newline character to separate values (if needed)
+        bufferedWriter.newLine();
+
+        bufferedWriter.close();
+
+    }
+
+    public static int[] readNumbersFromFile(String filePath) throws IOException {
+
+        FileReader fileReader = new FileReader(filePath);
+
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+        // Read the file line by line
+        String line;
+
+        StringBuilder content = new StringBuilder();
+
+        while ((line = bufferedReader.readLine()) != null) {
+
+            content.append(line).append("\n");
+
+        }
+
+        // Close the readers
+        bufferedReader.close();
+
+        fileReader.close();
+
+        // Split the content into an array of strings using a delimiter (e.g., space)
+        String[] numberStrings = content.toString().split("\\s+");
+
+        // Convert the string array into an integer array
+        int[] numbers = new int[numberStrings.length];
+
+        for (int i = 0; i < numberStrings.length; i++) {
+
+            numbers[i] = Integer.parseInt(numberStrings[i]);
+            
+        }
+
+        return numbers;
     }
 
    public static void quicksort(int a[]) {

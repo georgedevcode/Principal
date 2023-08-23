@@ -75,8 +75,6 @@ public class Personaje extends Entidad {
 
             int puntos = (2 * randomPuntaje);
 
-            juego.puntosGanadosPorPartida += puntos;
-
             increaseScore(puntos);
 
             System.out.println("Increase points" + puntos);

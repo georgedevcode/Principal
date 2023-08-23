@@ -16,15 +16,13 @@ import javax.swing.JPanel;
 
 public class Juego extends JPanel implements Runnable {
 
-    public int puntosGanadosPorPartida = 0;
-
     private int backgroundX = 0;
 
     private Image backgroundImage;
 
     public Obstaculo obstaculos = new Obstaculo();
 
-    public Puntajes puntajes = new Puntajes(this);
+    
 
     public Enemigo enemigo = new Enemigo();
 
@@ -36,6 +34,8 @@ public class Juego extends JPanel implements Runnable {
 
     //Este objeto es el personaje, pero solo vamos a user al pokemon que es la Jugador3.java
     public Personaje jugador = new Personaje(this, this.teclado);
+
+    public Puntajes puntajes = new Puntajes(jugador);
 
     public GestorColisiones colisionchek = new GestorColisiones(this);
     //FPS
@@ -116,12 +116,28 @@ public class Juego extends JPanel implements Runnable {
 
                     System.out.println("Jugador gano");
 
-                    puntajes.guardarPuntajes();
+                    try {
+                        puntajes.guardarPuntajes();
+
+                    } catch (IOException e) {
+
+                        System.out.println(e);
+
+                    }
+                    
                     
                 } else {
 
                     System.out.println("Jugador perdio");
-                     puntajes.guardarPuntajes();
+
+                     try {
+                        puntajes.guardarPuntajes();
+
+                    } catch (IOException e) {
+
+                        System.out.println(e);
+                        
+                    };
 
                 }
 
