@@ -36,19 +36,25 @@ public class Juego extends JPanel implements Runnable {
     public Puntajes puntajes = new Puntajes(jugador);
 
     public GestorColisiones colisionchek = new GestorColisiones(this);
+
     //FPS
     private int FPS = 70;
 
     private Thread juegoThread; // Hilo
 
     public Juego(JFrame parentFrame) {
-//Ajustes de pantalla
 
+        //Ajustes de pantalla
         this.setPreferredSize(new Dimension(1080, 600));
+
         this.setBackground(Color.black);
+
         this.setDoubleBuffered(true);
+
         this.addKeyListener(teclado);
+
         this.setFocusable(true);
+
         LoadBackgroundImage();
     }
 
@@ -56,9 +62,13 @@ public class Juego extends JPanel implements Runnable {
         try {
 
             BufferedImage image = ImageIO.read(new File("src/main/java/Background/Background.jpg"));
+
             backgroundImage = image.getScaledInstance(1080, 600, Image.SCALE_SMOOTH);
+
         } catch (IOException e) {
+
             e.printStackTrace();
+
         }
     }
 
@@ -94,8 +104,6 @@ public class Juego extends JPanel implements Runnable {
             delta += (tiempoActual - ultimavez) / intervaloDibujo;
 
             ultimavez = tiempoActual;
-
-            
 
             if (delta >= 1) {
 
@@ -137,8 +145,6 @@ public class Juego extends JPanel implements Runnable {
 
                         Puntajes.quicksort(puntaje);
 
-                        System.out.println(puntaje);
-
                     } catch (IOException e) {
 
                         System.out.println(e);
@@ -152,6 +158,7 @@ public class Juego extends JPanel implements Runnable {
         }
 
         System.exit(0);
+
     }
 
     public void actualizar() {
@@ -230,7 +237,3 @@ public class Juego extends JPanel implements Runnable {
     }
 
 }
-
-
-    
-
