@@ -22,8 +22,6 @@ public class Juego extends JPanel implements Runnable {
 
     public Obstaculo obstaculos = new Obstaculo();
 
-    
-
     public Enemigo enemigo = new Enemigo();
 
     public Sonido sonido = new Sonido();
@@ -109,7 +107,7 @@ public class Juego extends JPanel implements Runnable {
             }
 
             if(jugador.score >= 5000  || jugador.lives == 0){
-
+ 
                 this.gameRunning = false;
 
                 if (jugador.score >= 5000) {
@@ -117,7 +115,8 @@ public class Juego extends JPanel implements Runnable {
                     System.out.println("Jugador gano");
 
                     try {
-                        puntajes.guardarPuntajes();
+
+                        puntajes.guardarPuntajes(jugador.score);
 
                     } catch (IOException e) {
 
@@ -131,7 +130,7 @@ public class Juego extends JPanel implements Runnable {
                     System.out.println("Jugador perdio");
 
                      try {
-                        puntajes.guardarPuntajes();
+                        puntajes.guardarPuntajes(jugador.score);
 
                     } catch (IOException e) {
 

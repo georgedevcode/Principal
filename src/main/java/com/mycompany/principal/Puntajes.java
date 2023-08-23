@@ -9,13 +9,10 @@ import Entidad.Personaje;
 
 public class Puntajes {
 
-    private int puntosGanados = 0;
 
     private int puntos[];
 
     public Puntajes(Personaje jugador) {
-
-        this.puntosGanados = jugador.score;
 
     }
 
@@ -40,14 +37,14 @@ public class Puntajes {
 
     }
 
-    public void guardarPuntajes() throws IOException{
+    public void guardarPuntajes(int score) throws IOException{
 
         FileWriter fw = new FileWriter("Puntajes.txt", true);
         
         BufferedWriter bufferedWriter = new BufferedWriter(fw);
 
         // Convert puntosGanados to a String and then write it
-        String puntosStr = Integer.toString(this.puntosGanados);
+        String puntosStr = Integer.toString(score);
         bufferedWriter.write(puntosStr);
 
         // Add a newline character to separate values (if needed)
