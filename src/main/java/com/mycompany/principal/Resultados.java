@@ -1,3 +1,4 @@
+package com.mycompany.principal;
 import Entidad.Personaje;
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -8,8 +9,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-
-import com.mycompany.principal.Puntajes;
 
 public class Resultados extends JFrame {
     

@@ -16,6 +16,8 @@ import javax.swing.JPanel;
 
 public class Juego extends JPanel implements Runnable {
 
+    private Resultados resultados = new Resultados();
+
     private int backgroundX = 0;
 
     private Image backgroundImage;
@@ -156,7 +158,7 @@ public class Juego extends JPanel implements Runnable {
 
         }
 
-        System.exit(0);
+       resultados.setVisible(true);
 
     }
 
